@@ -27,3 +27,15 @@ Route::post('login',[LoginController::class,'login']);
 
 Route::post('permisos/guardar',[PermisosController::class, 'store']);
 Route::post('permisos/eliminar',[PermisosController::class, 'delete']);
+
+Route::post('divisiones/guardar',[DivisionController::class, 'store']);
+Route::post('divisiones/eliminar',[DivisionController::class, 'delete']);
+
+Route::post('profesores/guardar',[ProfesorController::class, 'store']);
+Route::post('profesores/eliminar',[ProfesorController::class, 'delete']);
+
+Route::post('puestos/guardar',[PuestoController::class, 'store']);
+Route::post('puestos/eliminar',[PuestoController::class, 'delete']);
+
+
+
