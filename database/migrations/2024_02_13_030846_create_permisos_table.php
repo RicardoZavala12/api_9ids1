@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('estado'); // P = 'Pendiente' - A = 'Autorizado'  -  R = 'Rechazado'
             $table->string('motivo');
             $table->string('observaciones');
+            $table->unsignedBigInteger('id_profesor');
 
-            $table->usingedBigInteger('id_profesor');
             //LLave foranea
-            $table->foreign('id_profesor')->references('id')->on('profesores');
+            $table->foreign('id_profesor')->references('id')->on('profesor');
         });
     }
 

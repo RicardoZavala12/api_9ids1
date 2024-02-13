@@ -53,4 +53,32 @@ class PuestoController extends Controller
         $puesto->delete();
         return redirect()->route('puestos');
     }
+
+    //Controllers for API's
+
+    public function storeAPI(Request $req)
+    {
+        if($req->id !=0)
+        {
+            $puesto = Puesto::find($req->id);
+        }
+        else
+        {
+            $puesto = new Puesto();
+        }
+
+        $puesto->codigo = $req->codigo;
+        $puesto->nombre = $req->nombre;
+
+        $puesto->save();
+
+        return "Puesto Guardado";
+    }
+
+    public function deleteAPI(Request $req)
+    {
+        $puesto = Puesto::find($req->id);
+        $puesto->delete();
+        return "Puesto Eliminado";
+    }
 }

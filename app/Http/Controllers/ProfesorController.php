@@ -61,4 +61,38 @@ class ProfesorController extends Controller
         return redirect()->route('profesores');
     }
 
+    //Controllers for API's
+
+    public function storeAPI(Request $req)
+    {
+        $divisiones = Division::all();
+        if($req->id !=0)
+        {
+            $profesor = Profesor::find($req->id);
+        }
+        else
+        {
+            $profesor = new Profesor();
+        }
+
+        $profesor->num_empleado = $req->num_empleado;
+        $profesor->nombre = $req->nombre;
+        $profesor->num_horas = $req->num_horas;
+        $profesor->division_id = $req->division_id;
+        $profesor->inicio_contrato = $req->inicio_contrato;
+        $profesor->fin_contrato = $req->fin_contrato;
+
+        $profesor->save();
+
+        
+        return "Profesor Guardado";
+
+    }
+    public function deleteAPI(Request $req)
+    {
+        $profesor = Profesor::find($req->id);
+        $profesor->delete();
+        return "Profesor Eliminado";
+    }
+
 }

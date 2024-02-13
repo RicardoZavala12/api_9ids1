@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PermisosController;
+use App\Http\Controllers\DivisionController;
+use App\Http\Controllers\ProfesorController;
+use App\Http\Controllers\PuestoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +24,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('login',[LoginController::class,'login']);
+
+Route::post('permisos/guardar',[PermisosController::class, 'store']);
+Route::post('permisos/eliminar',[PermisosController::class, 'delete']);

@@ -53,4 +53,32 @@ class DivisionController extends Controller
         $division->delete();
         return redirect()->route('divisiones');
     }
+
+    //Controllers for API's
+
+    public function storeAPI(Request $req)
+    {
+        if($req->id !=0)
+        {
+            $division = Division::find($req->id);
+        }
+        else
+        {
+            $division = new Division();
+        }
+
+        $division->codigo = $req->codigo;
+        $division->nombre = $req->nombre;
+
+        $division->save();
+
+        return "Division Guardada";
+    }
+
+    public function deleteAPI(Request $req)
+    {
+        $division = Division::find($req->id);
+        $division->delete();
+        return "Division Eliminada";
+    }
 }
